@@ -8,7 +8,7 @@ st.set_page_config(page_title="💳 Credit Card Fraud Detector", layout="centere
 
 st.markdown("""
     <style>
-        /* ---------- Static Gradient Background ---------- */
+      
         html, body, .stApp {
             height: 100%;
             margin: 0;
@@ -26,7 +26,7 @@ st.markdown("""
             padding-bottom: 2rem;
         }
 
-        /* ---------- Cool Gradient Predict Button ---------- */
+     
         .stButton > button {
             background: linear-gradient(135deg, #ff512f, #dd2476);  /* Orange to Pink */
             color: #fff;
