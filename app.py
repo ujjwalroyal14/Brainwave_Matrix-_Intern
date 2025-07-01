@@ -13,27 +13,46 @@ st.markdown("""
     <style>
         html, body, .stApp {
             height: 100%;
-            background: linear-gradient(270deg, #f0fff4, #e3f2fd, #fff8f0);
-            background-size: 600% 600%;
-            animation: gradientMove 15s ease infinite;
+            background: linear-gradient(135deg, #6e00ff, #1200ff, #00d4ff);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
         }
 
-        @keyframes gradientMove {
+        @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
         .stButton > button {
-            background-color: #2ecc71;
+            background-color: #ff9800;
             color: white;
+            font-weight: bold;
             border-radius: 8px;
             padding: 10px 20px;
-            font-weight: bold;
+            transition: 0.3s;
         }
 
-        h1, h3 {
-            color: #2c3e50;
+        .stButton > button:hover {
+            background-color: #ffa726;
+        }
+
+        .stTextInput > div > input,
+        .stNumberInput > div > input {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid white;
+        }
+
+        h1, h2, h3 {
+            color: white;
+        }
+
+        .block-container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
     </style>
 """, unsafe_allow_html=True)
