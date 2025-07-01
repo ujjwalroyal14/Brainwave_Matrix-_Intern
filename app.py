@@ -12,17 +12,9 @@ st.markdown("""
         html, body, .stApp {
             height: 100%;
             margin: 0;
-            background: linear-gradient(135deg, #6a00ff, #a56eff, #d9b3ff);
-            background-size: 600% 600%;
-            animation: gradientShift 18s ease infinite;
+            background: linear-gradient(135deg, #6a00ff, #d9b3ff);  /* Violet to Lavender */
             font-family: 'Segoe UI', sans-serif;
             color: white;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         .stButton > button {
@@ -40,13 +32,13 @@ st.markdown("""
 
         .stTextInput > div > input,
         .stNumberInput > div > input {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
             border: 1px solid white;
             border-radius: 5px;
         }
 
-        h1, h3 {
+        h1, h2, h3 {
             color: white;
         }
 
@@ -56,7 +48,6 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-
 
 # Title and subtitle
 st.title("💳 Credit Card Fraud Detection")
