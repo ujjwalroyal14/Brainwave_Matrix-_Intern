@@ -40,12 +40,12 @@ st.markdown("""
 
         .stButton > button:hover {
             transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 6px 20px rgba(221, 36, 118, 0.55);
+            box-shadow: 0 3px 10px rgba(0, 200, 150, 0.55);
         }
 
-        .stButton > button:active {
+       .stButton > button:active {
             transform: translateY(1px) scale(0.98);
-            box-shadow: 0 3px 10px rgba(221, 36, 118, 0.4);
+            box-shadow: 0 3px 10px rgba(0, 200, 150, 0.4);
         }
 
         /* ---------- Input Styling ---------- */
