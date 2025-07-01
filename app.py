@@ -9,14 +9,14 @@ import joblib
 st.set_page_config(page_title="Credit Card Fraud Detector", layout="centered")
 
 # 💡 Animated Background CSS (Option 2)
-st.markdown(
-    """
+st.markdown("""
     <style>
-        body {
+        /* Apply gradient to the entire page, not just inside widgets */
+        html, body, .stApp {
+            height: 100%;
             background: linear-gradient(270deg, #f0fff4, #e3f2fd, #fff8f0);
             background-size: 600% 600%;
             animation: gradientMove 15s ease infinite;
-            font-family: 'Segoe UI', sans-serif;
         }
 
         @keyframes gradientMove {
@@ -25,7 +25,7 @@ st.markdown(
             100% { background-position: 0% 50%; }
         }
 
-        .stButton > button {
+        .stButton>button {
             background-color: #2ecc71;
             color: white;
             font-weight: bold;
@@ -37,9 +37,8 @@ st.markdown(
             color: #2c3e50;
         }
     </style>
-    """,
-    unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
+
 
 # Title and instructions
 st.markdown("<h1 style='text-align: center;'>💳 Credit Card Fraud Detection</h1>", unsafe_allow_html=True)
