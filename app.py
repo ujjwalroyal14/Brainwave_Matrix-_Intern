@@ -5,13 +5,12 @@ import numpy as np
 import pandas as pd
 import joblib
 
-# Set page configuration
+# Set up page config
 st.set_page_config(page_title="Credit Card Fraud Detector", layout="centered")
 
-# 💡 Animated Background CSS (Option 2)
+# 🔥 CSS: Animated Gradient Background
 st.markdown("""
     <style>
-        /* Apply gradient to the entire page, not just inside widgets */
         html, body, .stApp {
             height: 100%;
             background: linear-gradient(270deg, #f0fff4, #e3f2fd, #fff8f0);
@@ -25,12 +24,12 @@ st.markdown("""
             100% { background-position: 0% 50%; }
         }
 
-        .stButton>button {
+        .stButton > button {
             background-color: #2ecc71;
             color: white;
-            font-weight: bold;
             border-radius: 8px;
             padding: 10px 20px;
+            font-weight: bold;
         }
 
         h1, h3 {
@@ -39,25 +38,22 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-# Title and instructions
+# Title
 st.markdown("<h1 style='text-align: center;'>💳 Credit Card Fraud Detection</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>Enter transaction details to predict if it's <b>fraudulent</b>.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Enter transaction details below to predict if it's <b>fraudulent</b>.</p>", unsafe_allow_html=True)
 
-# --- Feature Inputs ---
-
-# PCA Features: V1 to V28
+# Feature input section
 st.markdown("### 🔧 PCA-Transformed Features (V1–V28)")
 v_features = [f"V{i}" for i in range(1, 29)]
 v_inputs = []
-cols = st.columns(3)  # 3 sliders per row
+cols = st.columns(3)
 
 for i, feature in enumerate(v_features):
     with cols[i % 3]:
         val = st.slider(feature, -30.0, 30.0, 0.0, 0.1)
         v_inputs.append(val)
 
-# Scaled Time and Amount
+# Metadata
 st.markdown("### ⏰ Transaction Metadata")
 scaled_time = st.number_input("Scaled Time (0–1)", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
 scaled_amount = st.number_input("Scaled Amount (0–1)", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
@@ -67,12 +63,15 @@ input_array = np.array([scaled_time, scaled_amount] + v_inputs).reshape(1, -1)
 columns = ['scaled_time', 'scaled_amount'] + v_features
 input_df = pd.DataFrame(input_array, columns=columns)
 
-# Load trained model
-model = joblib.load("credit_card_fraud_model.joblib")
+# Load model safely
+try:
+    model = joblib.load("credit_card_fraud_model.joblib")
+except Exception as e:
+    st.error(f"🚫 Failed to load model: {e}")
+    st.stop()
 
-# --- Predict Button and Output ---
+# Predict button
 st.markdown("### 🚦 Prediction Result")
-
 if st.button("🔍 Predict Now"):
     prediction = model.predict(input_df)[0]
     prob = model.predict_proba(input_df)[0][1]
@@ -94,4 +93,4 @@ if st.button("🔍 Predict Now"):
 
 # Footer
 st.markdown("---")
-st.info("📊 This is a demo app using a Random Forest model trained on PCA-transformed credit card transaction data.")
+st.info("📊 This app uses a trained Random Forest model on PCA-transformed credit card transaction data for fraud prediction.")
