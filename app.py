@@ -6,36 +6,15 @@ import joblib
 # Configure Streamlit page
 st.set_page_config(page_title="💳 Credit Card Fraud Detector", layout="centered")
 
-
 st.markdown("""
     <style>
+        /* ---------- Static Gradient Background ---------- */
         html, body, .stApp {
             height: 100%;
             margin: 0;
             background: linear-gradient(135deg, #6a00ff, #d9b3ff);  /* Violet to Lavender */
             font-family: 'Segoe UI', sans-serif;
             color: white;
-        }
-
-        .stButton > button {
-            background-color: #ff8c00;
-            color: white;
-            font-weight: bold;
-            border-radius: 8px;
-            padding: 0.6em 1.2em;
-            transition: 0.3s ease-in-out;
-        }
-
-        .stButton > button:hover {
-            background-color: #ffa733;
-        }
-
-        .stTextInput > div > input,
-        .stNumberInput > div > input {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid white;
-            border-radius: 5px;
         }
 
         h1, h2, h3 {
@@ -45,6 +24,37 @@ st.markdown("""
         .block-container {
             padding-top: 2rem;
             padding-bottom: 2rem;
+        }
+
+        /* ---------- Cool Gradient Predict Button ---------- */
+        .stButton > button {
+            background: linear-gradient(135deg, #ff512f, #dd2476);  /* Orange to Pink */
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            padding: 0.7em 1.6em;
+            box-shadow: 0 4px 14px rgba(221, 36, 118, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        .stButton > button:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(221, 36, 118, 0.55);
+        }
+
+        .stButton > button:active {
+            transform: translateY(1px) scale(0.98);
+            box-shadow: 0 3px 10px rgba(221, 36, 118, 0.4);
+        }
+
+        /* ---------- Input Styling ---------- */
+        .stTextInput > div > input,
+        .stNumberInput > div > input {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
         }
     </style>
 """, unsafe_allow_html=True)
