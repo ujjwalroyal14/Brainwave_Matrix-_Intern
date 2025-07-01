@@ -12,7 +12,7 @@ st.markdown("""
         html, body, .stApp {
             height: 100%;
             margin: 0;
-            background: linear-gradient(135deg, #6a00ff, #1a2aff, #00cfff);
+            background: linear-gradient(135deg, #6a00ff, #a56eff, #d9b3ff);
             background-size: 600% 600%;
             animation: gradientShift 18s ease infinite;
             font-family: 'Segoe UI', sans-serif;
@@ -56,6 +56,7 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Title and subtitle
 st.title("💳 Credit Card Fraud Detection")
